@@ -1,0 +1,37 @@
+<% layout("/layouts/mainLayout.ejs") %>
+    <div class="row mt-3">
+        <div class="col-8 mx-auto">
+            <h3>Add your new book details</h3>
+            <form method="POST" action="/book/new" enctype="multipart/form-data"
+            novalidate class="needs-validation" >
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input name="book[title]" id="title" placeholder="Add a catchy title" type="text" class="form-control"
+                        required />
+                    <div class="valid-feedback">Title looks good!</div>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload Listing image</label>
+                    <input id="image" name="book[image]" type="file" class="form-control" />
+                  </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" name="book[price]" placeholder="Write book price" id="price"
+                          class="form-control" required />
+                        <div class="invalid-feedback">Price must greater than zero</div>
+                    </div>
+
+                    <div class="mb-3 col-md-8">
+                        <label for="contact" class="form-label">Contact</label>
+                        <input name="book[contact]" placeholder="contact" id="contact"
+                         type="text" pattern="[789][0-9]{9}"
+                         class="form-control" required />
+                        <div class="invalid-feedback">10 digit phone number must start with 7,8, or 9</div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success add-btn mt-3">Add</button>
+            </form>
+        </div>
+    </div>

@@ -1,0 +1,31 @@
+<% layout("/layouts/mainLayout.ejs") %>
+    <div class="row mt-3">
+        <div class="col-8 mx-auto">
+            <h3>Edit your book details</h3>
+            <form method="POST" action="/book/<%=book._id%>/edit?_method=PUT" novalidate class="needs-validation">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input name="book[title]" placeholder="Add a catchy title" id="title" value="<%= book.title %>"
+                        type="text" class="form-control" required />
+                    <div class="valid-feedback">Title looks good!</div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input name="book[price]" placeholder="Price of book" id="price" value="<%= book.price %>"
+                            class="form-control" type="number" required />
+                        <div class="invalid-feedback">Price should be valid</div>
+                    </div>
+
+                    <div class="mb-3 col-md-8">
+                        <label for="contact" class="form-label">Contact</label>
+                        <input name="book[contact]" placeholder="contact" id="contact" value="<%= book.contact %>"
+                            type="text" pattern="[789][0-9]{9}" class="form-control" required />
+                        <div class="invalid-feedback">10 digit phone number must start with 7,8, or 9</div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-dark add-btn mt-3">Edit</button>
+            </form>
+        </div>
+    </div>

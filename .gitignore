@@ -1,0 +1,5 @@
+# Node.js runtime environment
+node_modules/
+
+# Environment variables
+.env
